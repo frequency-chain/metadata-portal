@@ -1,5 +1,6 @@
 {
   "frequency-rococo": {
+    "vanityName": "Frequency Rococo",
     "title": "frequency-rococo",
     "color": "#4B64FF",
     "rpcEndpoint": "wss://frequency-seal.liberti.social:9944",

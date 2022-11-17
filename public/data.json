@@ -1,0 +1,58 @@
+{
+  "frequency": {
+    "vanityName": "Frequency",
+    "title": "frequency",
+    "color": "#4B64FF",
+    "rpcEndpoint": "wss://node-6999003637804199936.gx.onfinality.io/ws?apikey=31444de7-f7cd-4b04-8916-40f19a024293",
+    "genesisHash": "0x4a587bf17a404e3572747add7aab7bbe56e805a5479c6c436f07f36fcc8d3ae1",
+    "unit": "FRQCY",
+    "base58prefix": 90,
+    "logo": "frequency",
+    "decimals": 8,
+    "metadataVersion": 1,
+    "metadataQr": {
+      "path": "qr/unsigned_frequency_metadata_1.apng",
+      "signedBy": null,
+      "source": {
+        "type": "Rpc",
+        "block": "0x4a587bf17a404e3572747add7aab7bbe56e805a5479c6c436f07f36fcc8d3ae1"
+      }
+    },
+    "nextMetadataVersion": null,
+    "nextMetadataQr": null,
+    "latestMetadata": "qr/frequency_metadata_latest.apng",
+    "specsQr": {
+      "path": "qr/unsigned_frequency_specs.png",
+      "signedBy": null,
+      "source": null
+    }
+  },
+  "frequency-rococo": {
+    "vanityName": "Frequency Rococo",
+    "title": "frequency-rococo",
+    "color": "#29FD47",
+    "rpcEndpoint": "wss://rpc.rococo.frequency.xyz",
+    "genesisHash": "0x0c33dfffa907de5683ae21cc6b4af899b5c4de83f3794ed75b2dc74e1b088e72",
+    "unit": "XRQCY",
+    "base58prefix": 42,
+    "logo": "frequency-rococo",
+    "decimals": 8,
+    "metadataVersion": 2,
+    "metadataQr": {
+      "path": "qr/unsigned_frequency-rococo_metadata_2.apng",
+      "signedBy": null,
+      "source": {
+        "type": "Rpc",
+        "block": "0x38ae4d9e4443b312cb1b45284b7fa930db9834c50db97d890af788bca0720487"
+      }
+    },
+    "nextMetadataVersion": null,
+    "nextMetadataQr": null,
+    "latestMetadata": "qr/frequency-rococo_metadata_latest.apng",
+    "specsQr": {
+      "path": "qr/unsigned_frequency-rococo_specs.png",
+      "signedBy": null,
+      "source": null
+    }
+  }
+}

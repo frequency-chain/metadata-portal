@@ -1,4 +1,5 @@
 use std::collections::{BTreeMap, HashMap};
+use std::ffi::OsStr;
 use std::fs;
 use std::path::Path;
 
@@ -19,12 +20,12 @@ pub(crate) fn qrs_in_dir(dir: impl AsRef<Path>) -> Result<Vec<QrPath>> {
         if !file.file_type()?.is_file() {
             continue;
         }
-        if !file.path().ends_with("png") && !file.path().ends_with("apng") {
+
+        if file.path().extension().and_then(OsStr::to_str) != Some("png") && file.path().extension().and_then(OsStr::to_str) != Some("apng")  {
             log::debug!("EXCLUDING {:?}", file.path());
-            // log::debug!("{:?}", file.file_name());
             continue;
         }
-        // log::debug!("INCLUDING {:?}", file.path());
+
 
         match QrPath::try_from(&file.path()) {
             Ok(qr_path) => files.push(qr_path),

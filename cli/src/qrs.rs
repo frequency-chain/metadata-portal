@@ -21,7 +21,7 @@ pub(crate) fn qrs_in_dir(dir: impl AsRef<Path>) -> Result<Vec<QrPath>> {
             continue;
         }
 
-        if file.path().extension().and_then(OsStr::to_str) != Some("png") && file.path().extension().and_then(OsStr::to_str) != Some("apng")  {
+        if file.path().extension().and_then(OsStr::to_str) != Some("png") && file.path().extension().and_then(OsStr::to_str) != Some("apng") {
             log::debug!("EXCLUDING {:?}", file.path());
             continue;
         }

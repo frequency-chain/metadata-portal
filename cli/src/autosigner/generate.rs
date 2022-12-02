@@ -70,7 +70,6 @@ pub(crate) fn generate_signed_spec_qr(
 
     log::debug!("FILE={}", signed_qr);
     log::debug!("SIGNATURE={}", signature_hex);
-    log::debug!("MESSAGE={}", hex::encode(&complete_message));
 
     let make = Make {
         goal: Goal::Qr,
@@ -152,7 +151,6 @@ pub(crate) fn generate_signed_metadata_qr(
 
     log::debug!("FILE={}", signed_qr);
     log::debug!("SIGNATURE={}", signature_hex);
-    log::debug!("MESSAGE={}", hex::encode(&complete_message));
 
     let make = Make {
         goal: Goal::Qr,

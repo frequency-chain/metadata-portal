@@ -25,7 +25,7 @@ jobs:
         run: echo $GITHUB_OUTPUT
 
       - name: Echo the yarn cache path
-        id: echo-yarn-cache-dir-path
+        id: echo-yarn-cache-dir
         run: echo ${{ steps.yarn-cache-dir-path.outputs.dir }}
 
       - name: ⚡ NPM Cache

@@ -43,12 +43,16 @@ jobs:
 
       - name: ⚙ Autosign QRs from RPC nodes
         uses: actions-rs/cargo@v1
+        env:
+          SIGNING_SEED_PHRASE: ${{secrets.SIGNING_SEED_PHRASE}}
         with:
           command: run
           args: --release -- auto-sign --source node
 
       - name: ⚙ Autosign QRs from GitHub releases
         uses: actions-rs/cargo@v1
+        env:
+          SIGNING_SEED_PHRASE: ${{secrets.SIGNING_SEED_PHRASE}}
         with:
           command: run
           args: --release -- auto-sign --source github

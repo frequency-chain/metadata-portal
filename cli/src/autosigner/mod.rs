@@ -24,15 +24,13 @@ pub(crate) fn autosign_from_node(config: AppConfig, fetcher: impl Fetcher) -> an
     // let devsecret = "caution juice atom organ advance problem want pledge someone senior holiday very";
 
     let secret_key = "SIGNING_SEED_PHRASE";
-    let secret_seed_phrase;
-
-    match env::var(secret_key) {
-        Ok(value) => secret_seed_phrase = value,
+    let secret_seed_phrase = match env::var(secret_key) {
+        Ok(value) => value,
         Err(e) => {
             log::error!("Could not interpret environment variable: {secret_key}: {e}");
             panic!();
         }
-    }
+    };
 
     let sr25519_pair = match sr25519::Pair::from_string(&secret_seed_phrase, None) {
         Ok(pair) => pair,
@@ -93,15 +91,13 @@ pub(crate) async fn autosign_from_github(config: AppConfig) -> anyhow::Result<()
     // let devsecret = "caution juice atom organ advance problem want pledge someone senior holiday very";
 
     let secret_key = "SIGNING_SEED_PHRASE";
-    let secret_seed_phrase;
-
-    match env::var(secret_key) {
-        Ok(value) => secret_seed_phrase = value,
+    let secret_seed_phrase = match env::var(secret_key) {
+        Ok(value) => value,
         Err(e) => {
             log::error!("Could not interpret environment variable: {secret_key}: {e}");
             panic!();
         }
-    }
+    };
 
     let sr25519_pair = match sr25519::Pair::from_string(&secret_seed_phrase, None) {
         Ok(pair) => pair,

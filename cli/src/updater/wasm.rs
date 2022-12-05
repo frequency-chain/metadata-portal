@@ -23,7 +23,7 @@ impl TryFrom<Asset> for WasmRuntime {
         }
         let runtime_info = asset.name.split('.').next().ok_or_else(|| {
             log::debug!("NO RUNTIME INFO FOUND");
-            return anyhow!("no runtime info found");
+            anyhow!("no runtime info found")
         })?;
 
         log::info!("FOUND RUNTIME INFO!");
@@ -57,7 +57,7 @@ pub(crate) async fn download_wasm(wasm: WasmRuntime) -> anyhow::Result<Vec<u8>> 
 
 pub(crate) fn meta_values_from_wasm_bytes(wasm_bytes: &Vec<u8>) -> anyhow::Result<MetaValues> {
     let filename = "/tmp/wasm";
-    std::fs::write(&Path::new(&filename), wasm_bytes)?;
+    std::fs::write(Path::new(&filename), wasm_bytes)?;
     let meta = MetaValues::from_wasm_file(filename)
         .map_err(|_e| anyhow!("error converting wasm to metadata"))?;
     Ok(meta)

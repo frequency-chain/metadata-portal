@@ -17,6 +17,9 @@ all:
 clean:
 	rm -rf target
 
+clippy:
+	cargo clippy -- -D warnings
+
 remove:
 	rm -f public/data.json public/qr/*.{png,apng}
 

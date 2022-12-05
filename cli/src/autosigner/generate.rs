@@ -66,7 +66,7 @@ pub(crate) fn generate_signed_spec_qr(
     let tmp_dir = tempfile::tempdir()?;
     let content_file = tmp_dir.path().join("content");
     let mut f = File::create(&content_file)?;
-    f.write_all(&passed_crypto.message.deref())?;
+    f.write_all(passed_crypto.message.deref())?;
 
     log::debug!("FILE={}", signed_qr);
     log::debug!("SIGNATURE={}", signature_hex);
@@ -89,7 +89,7 @@ pub(crate) fn generate_signed_spec_qr(
         msg: msg_type,
         name: Some(signed_qr.to_path_buf()),
         files_dir: signed_qr.dir.clone(),
-        payload: content_file.clone(),
+        payload: content_file,
         export_dir: signed_qr.dir.clone(),
         crypto: Some(Encryption::Sr25519),
     };
@@ -147,7 +147,7 @@ pub(crate) fn generate_signed_metadata_qr(
     let tmp_dir = tempfile::tempdir()?;
     let content_file = tmp_dir.path().join("content");
     let mut f = File::create(&content_file)?;
-    f.write_all(&passed_crypto.message.deref())?;
+    f.write_all(passed_crypto.message.deref())?;
 
     log::debug!("FILE={}", signed_qr);
     log::debug!("SIGNATURE={}", signature_hex);
@@ -170,7 +170,7 @@ pub(crate) fn generate_signed_metadata_qr(
         msg: msg_type,
         name: Some(signed_qr.to_path_buf()),
         files_dir: signed_qr.dir.clone(),
-        payload: content_file.clone(),
+        payload: content_file,
         export_dir: signed_qr.dir.clone(),
         crypto: Some(Encryption::Sr25519),
     };

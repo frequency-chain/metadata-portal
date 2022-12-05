@@ -31,7 +31,7 @@ jobs:
       - name: ⚡ NPM Cache
         uses: actions/cache@v3
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: $GITHUB_OUTPUT
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
 
       - name: 🔧 Install dependencies

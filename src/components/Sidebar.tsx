@@ -73,9 +73,17 @@ export default function Sidebar({
                   style={{ backgroundColor: specs.color }}
                 >
                   <div className="flex items-center text-lg text-white font-inter">
-                    <div className="network_icon">{ c == "frequency-rococo" || c == "frequency" ? <img src="/FRQCY-Circle-Black.svg" /> : c}</div>
+                    <div className="network_icon">
+                      {c == "frequency-rococo" || c == "frequency" ? (
+                        <img src="/FRQCY-Circle-Black.svg" />
+                      ) : (
+                        c
+                      )}
+                    </div>
                     <div className="network_name">
-                    { allChains[c].vanityName ? allChains[c].vanityName : capitalizeFirstLetter(allChains[c].title) }
+                      {allChains[c].vanityName
+                        ? allChains[c].vanityName
+                        : capitalizeFirstLetter(allChains[c].title)}
                     </div>
                   </div>
                 </div>
@@ -89,9 +97,17 @@ export default function Sidebar({
                   }}
                 >
                   <div className="flex items-center text-lg font-inter">
-                  <div className="network_icon text-[#9E9E9E]">{ c == "frequency-rococo" || c == "frequency" ? <img src="/FRQCY-Circle-Black.svg" /> : c}</div>
+                    <div className="network_icon text-[#9E9E9E]">
+                      {c == "frequency-rococo" || c == "frequency" ? (
+                        <img src="/FRQCY-Circle-Black.svg" />
+                      ) : (
+                        c
+                      )}
+                    </div>
                     <div className="network_name">
-                    { allChains[c].vanityName ? allChains[c].vanityName : capitalizeFirstLetter(allChains[c].title) }
+                      {allChains[c].vanityName
+                        ? allChains[c].vanityName
+                        : capitalizeFirstLetter(allChains[c].title)}
                     </div>
                   </div>
                 </div>

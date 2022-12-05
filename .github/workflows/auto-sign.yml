@@ -35,9 +35,11 @@ jobs:
           fi
           echo “switched=$switched” >> $GITHUB_OUTPUT
           echo “DEBUG***** switched=$switched”
-
+          echo "sanitized=12345" >> $GITHUB_OUTPUT
+          
       - name: Debug
         run: |
+          echo “**** sanitized=${{steps.checkout-pr.outputs.sanitized}}”
           echo “**** SWITCHED=${{ steps.checkout-pr.outputs.switched }}”
           echo “**** OUTPUTS=${{ steps.checkout-pr.outputs }}”
           

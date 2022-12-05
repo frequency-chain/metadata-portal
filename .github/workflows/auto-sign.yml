@@ -35,7 +35,7 @@ jobs:
             git checkout --track $AUTO_SIGNED_BRANCH
             switched='true'
           fi
-          echo “switched=${switched}” >> $GITHUB_OUTPUT
+          echo “name=switched::${switched}” >> $GITHUB_OUTPUT
           echo “DEBUG***** switched=$switched”
           echo "sanitized=true" >> $GITHUB_OUTPUT
           

@@ -63,12 +63,6 @@ jobs:
           command: run
           args: --release -- collect
 
-      - name: ⚙ Run Cleaner
-        uses: actions-rs/cargo@v1
-        with:
-          command: run
-          args: --release -- clean
-
       - name: 📌 Commit changes if PR exists
         if: ${{ steps.checkout-pr.outputs.switched == 'true' }}
         uses: ./.github/workflows/commit-changes

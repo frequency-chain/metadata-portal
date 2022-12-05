@@ -13,10 +13,7 @@ runs:
     - name: Get yarn cache path
       id: yarn-cache-dir-path
       run: echo "name=dir::$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-    - name: Echo the yarn cache path dir
-      id: echo-yarn-cache-dir-path
-      run: echo $GITHUB_OUTPUT
+      shell: bash
 
     - name: ⚡ NPM Cache
       uses: actions/cache@v3

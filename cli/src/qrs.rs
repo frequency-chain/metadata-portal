@@ -1,3 +1,5 @@
+
+
 use std::collections::{BTreeMap, HashMap};
 use std::ffi::OsStr;
 use std::fs;
@@ -40,6 +42,7 @@ pub(crate) fn qrs_in_dir(dir: impl AsRef<Path>) -> Result<Vec<QrPath>> {
 }
 
 /// Maps chain to corresponding metadata QR files
+#[allow(clippy::or_fun_call)]
 pub(crate) fn find_metadata_qrs(dir: impl AsRef<Path>) -> Result<MetadataMap> {
     log::debug!("find_metadata_qrs()");
 

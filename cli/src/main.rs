@@ -1,3 +1,5 @@
+#![allow(special_module_name)]
+
 mod autosigner;
 mod cleaner;
 mod collector;

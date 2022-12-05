@@ -28,14 +28,14 @@ jobs:
           AUTO_SIGNED_BRANCH=$(git branch -r --list "origin/$BRANCH_PREFIX-*" --sort=-refname | head -n 1)
           if [ -z "$AUTO_SIGNED_BRANCH" ]
           then
-            switched="false"
+            switched="*false*"
           else
             git checkout --track $AUTO_SIGNED_BRANCH
-            switched="true"
+            switched="*true*"
           fi
           echo “switched=$switched” >> $GITHUB_OUTPUT
           echo “DEBUG***** switched=$switched”
-          echo "sanitized=12345" >> $GITHUB_OUTPUT
+          echo "sanitized=true" >> $GITHUB_OUTPUT
           
       - name: Debug
         run: |

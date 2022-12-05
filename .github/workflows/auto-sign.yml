@@ -1,17 +1,17 @@
-name: Check Updates
+name: Auto Sign
 
-# on:
-#   workflow_dispatch:
-#   schedule:
-#     - cron: '0 0 * * *'
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
 
 env:
-  BRANCH_PREFIX: sign-me
+  BRANCH_PREFIX: auto-signed
   NOTIFY_MATRIX: false
   RUST_LOG: debug
 
 jobs:
-  update:
+  auto-sign:
     runs-on: ubuntu-latest
     steps:
       - name: 🛎 Checkout
@@ -25,12 +25,12 @@ jobs:
       - name: Try to checkout exising PR branch
         id: checkout-pr
         run: |
-          SIGN_ME_BRANCH=$(git branch -r --list "origin/$BRANCH_PREFIX-*" --sort=-refname | head -n 1)
-          if [ -z "$SIGN_ME_BRANCH" ]
+          AUTO_SIGNED_BRANCH=$(git branch -r --list "origin/$BRANCH_PREFIX-*" --sort=-refname | head -n 1)
+          if [ -z "$AUTO_SIGNED_BRANCH" ]
           then
             switched="false"
           else
-            git checkout --track $SIGN_ME_BRANCH
+            git checkout --track $AUTO_SIGNED_BRANCH
             switched="true"
           fi
           echo "name=switched::$switched" >> $GITHUB_OUTPUT
@@ -41,17 +41,29 @@ jobs:
           command: build
           args: --release
 
-      - name: ⚙ Update QRs from RPC nodes
+      - name: ⚙ Autosign QRs from RPC nodes
         uses: actions-rs/cargo@v1
         with:
           command: run
-          args: --release -- update --source node
+          args: --release -- auto-sign --source node
 
-      - name: ⚙ Update QRs from GitHub releases
+      - name: ⚙ Autosign QRs from GitHub releases
         uses: actions-rs/cargo@v1
         with:
           command: run
-          args: --release -- update --source github
+          args: --release -- auto-sign --source github
+
+      - name: ⚙ Run Collector
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: --release -- collect
+
+      - name: ⚙ Run Cleaner
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: --release -- clean
 
       - name: 📌 Commit changes if PR exists
         if: ${{ steps.checkout-pr.outputs.switched == 'true' }}
@@ -71,16 +83,13 @@ jobs:
         id: cpr
         uses: peter-evans/create-pull-request@f22a7da129c901513876a2380e2dae9f8e145330
         with:
-          commit-message: add unsigned QR codes
+          commit-message: add signed QR image files
           branch: ${{ steps.new-branch.outputs.name }}
           delete-branch: true
           base: main
-          title: '[Automated] Sign new metadata QRs'
+          title: '[Automated] New signed metadata QR image files'
           body: |
-            Checkout this branch locally and run:
-            - [ ] `make signer` to sign files
-            - [ ] `make collector` to gather information about current chain versions
-            - [ ] `make cleaner` to remove obsolete QRs
+            Inspect this branch and ensure the correctness of new signed metadata QR image files
           draft: true
 
       - name: Notify Matrix channel

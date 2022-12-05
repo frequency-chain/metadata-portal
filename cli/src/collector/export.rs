@@ -45,7 +45,7 @@ pub(crate) fn export_specs(config: &AppConfig, fetcher: impl Fetcher) -> Result<
                 title: chain.title.as_ref().unwrap_or(&chain.name).clone(),
                 color: chain.color.clone(),
                 rpc_endpoint: chain.rpc_endpoints[0].clone(), // keep only the first one
-                genesis_hash: format!("0x{}", hex::encode(&specs.genesis_hash)),
+                genesis_hash: format!("0x{}", hex::encode(specs.genesis_hash)),
                 unit: specs.unit,
                 logo: specs.logo,
                 decimals: specs.decimals,

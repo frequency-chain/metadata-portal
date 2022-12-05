@@ -86,7 +86,7 @@ jobs:
         run: |
           NAME="$BRANCH_PREFIX-$(date '+%Y-%m-%d')"
           echo "name=name::$NAME" >> $GITHUB_OUTPUT
-          echo “DEBUG***** NAME=$NAME
+          echo “DEBUG***** NAME=$NAME"
 
       - name: Create Pull Request if not exist
         if: ${{ steps.checkout-pr.outputs.switched == 'false' }}

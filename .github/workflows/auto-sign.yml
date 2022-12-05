@@ -36,6 +36,11 @@ jobs:
           echo “switched=$switched” >> $GITHUB_OUTPUT
           echo “DEBUG***** switched=$switched”
 
+      - name: Debug
+        run: |
+          echo “**** SWITCHED=${{ steps.checkout-pr.outputs.switched }}”
+          echo “**** OUTPUTS=${{ steps.checkout-pr.outputs }}”
+          
       - name: ⚙ Build metadata-cli
         uses: actions-rs/cargo@v1
         with:
@@ -70,10 +75,6 @@ jobs:
           command: run
           args: --release -- clean
 
-      - name: Debug
-        run: |
-          echo “**** SWITCHED=${{ steps.checkout-pr.outputs.switched }}”
-          echo "GITHUB_OUTPUT"=$GITHUB_OUTPUT
       - name: 📌 Commit changes if PR exists
         if: ${{ steps.checkout-pr.outputs.switched == 'true' }}
         uses: ./.github/workflows/commit-changes

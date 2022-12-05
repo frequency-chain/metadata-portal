@@ -70,20 +70,20 @@ jobs:
           args: --release -- clean
 
       - name: 📌 Commit changes if PR exists
-        if: ${{ GITHUB_OUTPUT == 'true' }}
+        if: ${{ $GITHUB_OUTPUT == 'true' }}
         uses: ./.github/workflows/commit-changes
         with:
           message: 'metadata update'
 
       - name: New PR branch
-        if: ${{ GITHUB_OUTPUT == 'false' }}
+        if: ${{ $GITHUB_OUTPUT == 'false' }}
         id: new-branch
         run: |
           NAME="$BRANCH_PREFIX-$(date '+%Y-%m-%d')"
           echo "name=name::$NAME" >> $GITHUB_OUTPUT
 
       - name: Create Pull Request if not exist
-        if: ${{ GITHUB_OUTPUT == 'false' }}
+        if: ${{ $GITHUB_OUTPUT == 'false' }}
         id: cpr
         uses: peter-evans/create-pull-request@f22a7da129c901513876a2380e2dae9f8e145330
         with:

@@ -122,7 +122,7 @@ pub(crate) async fn autosign_from_github(config: AppConfig) -> anyhow::Result<()
         let github_repo = chain.github_release.unwrap();
         let wasm = fetch_latest_runtime(&github_repo, &chain.name).await?;
         if wasm.is_none() {
-            warn!("🤨 No releases found");
+            warn!("🤨 No releases found for {}", chain.name);
             continue;
         }
         let wasm = wasm.unwrap();

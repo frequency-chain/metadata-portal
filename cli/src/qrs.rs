@@ -21,18 +21,19 @@ pub(crate) fn qrs_in_dir(dir: impl AsRef<Path>) -> Result<Vec<QrPath>> {
             continue;
         }
 
-        if file.path().extension().and_then(OsStr::to_str) != Some("png") && file.path().extension().and_then(OsStr::to_str) != Some("apng") {
-            log::debug!("EXCLUDING {:?}", file.path());
-            continue;
-        }
-
-
-        match QrPath::try_from(&file.path()) {
-            Ok(qr_path) => files.push(qr_path),
-            Err(e) => {
-                eprintln!("{}", e);
-                continue;
+        if file.path().extension().and_then(OsStr::to_str) == Some("png")
+            || file.path().extension().and_then(OsStr::to_str) == Some("apng")
+        {
+            // log::debug!("INCLUDING {:?}", file.path());
+            match QrPath::try_from(&file.path()) {
+                Ok(qr_path) => files.push(qr_path),
+                Err(e) => {
+                    eprintln!("{}", e);
+                    continue;
+                }
             }
+        } else {
+            // log::debug!("EXCLUDING {:?}", file.path());
         }
     }
     Ok(files)

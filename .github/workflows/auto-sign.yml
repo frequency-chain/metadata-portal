@@ -73,7 +73,7 @@ jobs:
       - name: Debug
         run: |
           echo “**** SWITCHED=${{ steps.checkout-pr.outputs.switched }}”
-
+          echo "GITHUB_OUTPUT"=$GITHUB_OUTPUT
       - name: 📌 Commit changes if PR exists
         if: ${{ steps.checkout-pr.outputs.switched == 'true' }}
         uses: ./.github/workflows/commit-changes

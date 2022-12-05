@@ -40,7 +40,7 @@ jobs:
       - name: Debug
         run: |
           echo “**** sanitized=${{steps.checkout-pr.outputs.sanitized}}”
-          echo “**** SWITCHED=${{ steps.checkout-pr.outputs.switched }}”
+          echo “**** switched=${{steps.checkout-pr.outputs.switched}}”
           echo “**** OUTPUTS=${{ steps.checkout-pr.outputs }}”
           
       - name: ⚙ Build metadata-cli

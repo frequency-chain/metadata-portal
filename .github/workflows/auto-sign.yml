@@ -33,7 +33,7 @@ jobs:
             git checkout --track $AUTO_SIGNED_BRANCH
             switched="true"
           fi
-          echo "name=switched::$switched" >> $GITHUB_OUTPUT
+          echo “switched=$switched” >> $GITHUB_OUTPUT
 
       - name: ⚙ Build metadata-cli
         uses: actions-rs/cargo@v1
@@ -69,21 +69,26 @@ jobs:
           command: run
           args: --release -- clean
 
+      - name: Debug
+        run: |
+          echo “SWITCHED=${{ steps.checkout-pr.outputs.switched }}”
+
+
       - name: 📌 Commit changes if PR exists
-        if: ${{ $GITHUB_OUTPUT == 'true' }}
+        if: ${{ steps.checkout-pr.outputs.switched == 'true' }}
         uses: ./.github/workflows/commit-changes
         with:
           message: 'metadata update'
 
       - name: New PR branch
-        if: ${{ $GITHUB_OUTPUT == 'false' }}
+        if: ${{ steps.checkout-pr.outputs.switched == 'false' }}
         id: new-branch
         run: |
           NAME="$BRANCH_PREFIX-$(date '+%Y-%m-%d')"
           echo "name=name::$NAME" >> $GITHUB_OUTPUT
 
       - name: Create Pull Request if not exist
-        if: ${{ $GITHUB_OUTPUT == 'false' }}
+        if: ${{ steps.checkout-pr.outputs.switched == 'false' }}
         id: cpr
         uses: peter-evans/create-pull-request@f22a7da129c901513876a2380e2dae9f8e145330
         with:

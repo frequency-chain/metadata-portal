@@ -91,9 +91,9 @@ jobs:
           branch: ${{ steps.new-branch.outputs.branchname }}
           delete-branch: true
           base: main
-          title: '[Automated] New signed metadata QR image files'
+          title: '[Automated] Updated signed metadata QR image files'
           body: |
-            Inspect this branch and ensure the correctness of new signed metadata QR image files
+            If the Metadata Portal needs updated data, inspect the data.json file to determine whether it is correct and then merge this PR.
           draft: true
 
       - name: Notify Matrix channel

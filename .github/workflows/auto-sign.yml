@@ -19,13 +19,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: 🔧 Install rust dependencies
+      - name: 🔧 Install Rust dependencies
         uses: ./.github/workflows/rust-install
 
-      - name: Try to checkout existing PR branch
-        id: checkout-pr
+      - name: Check out PR branch if it already exists
+        id: checkout-pr-branch
         run: |
-          set -ex
           AUTO_SIGNED_BRANCH=$(git branch -r --list "origin/$BRANCH_PREFIX-*" --sort=-refname | head -n 1)
           if [ -z "$AUTO_SIGNED_BRANCH" ]
           then
@@ -70,21 +69,21 @@ jobs:
           command: run
           args: --release -- clean
 
-      - name: 📌 Commit changes if PR exists
-        if: ${{ steps.checkout-pr.outputs.hasbranch == 'true' }}
+      - name: 📌 Commit changes if PR branch exists
+        if: ${{ steps.checkout-pr-branch.outputs.hasbranch == 'true' }}
         uses: ./.github/workflows/commit-changes
         with:
           message: 'metadata update'
 
-      - name: New PR branch
-        if: ${{ steps.checkout-pr.outputs.hasbranch == 'false' }}
+      - name: Create name for new PR branch if it doesn't already exist
+        if: ${{ steps.checkout-pr-branch.outputs.hasbranch == 'false' }}
         id: new-branch
         run: |
           branchname="$BRANCH_PREFIX-$(date '+%Y-%m-%d')"
           echo "branchname=$branchname" >> $GITHUB_OUTPUT
 
-      - name: Create Pull Request if not exist
-        if: ${{ steps.checkout-pr.outputs.hasbranch == false }}
+      - name: Create PR branch if it doesn't already exist
+        if: ${{ steps.checkout-pr-branch.outputs.hasbranch == false }}
         id: cpr
         uses: peter-evans/create-pull-request@f22a7da129c901513876a2380e2dae9f8e145330
         with:

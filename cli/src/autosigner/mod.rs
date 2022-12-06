@@ -125,7 +125,7 @@ pub(crate) async fn autosign_from_github(config: AppConfig) -> anyhow::Result<()
         info!("📅 Found version {}", wasm.version);
         let genesis_hash = H256::from_str(&github_repo.genesis_hash).unwrap();
 
-        // Skip if already have QR for the same version
+        // Skip if already has QR for the same version
         if let Some(map) = metadata_qrs.get(&chain.name) {
             if map.contains_key(&wasm.version) || map.keys().min().unwrap_or(&0) > &wasm.version {
                 info!("🎉 {} is up to date!", chain.name);

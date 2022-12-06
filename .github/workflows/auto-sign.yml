@@ -84,7 +84,7 @@ jobs:
           echo "branchname=$branchname" >> $GITHUB_OUTPUT
 
       - name: Create Pull Request if not exist
-        if: ${{ steps.checkout-pr.outputs.switched == false }}
+        if: ${{ steps.checkout-pr.outputs.hasbranch == false }}
         id: cpr
         uses: peter-evans/create-pull-request@f22a7da129c901513876a2380e2dae9f8e145330
         with:

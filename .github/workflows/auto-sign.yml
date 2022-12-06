@@ -35,11 +35,7 @@ jobs:
             hasbranch='true'
           fi
           echo "hasbranch=$hasbranch" >> $GITHUB_OUTPUT
-          
-      - name: Debug
-        run: |
-          echo "**** hasbranch=${{steps.checkout-pr.outputs.hasbranch}}"
-          
+      
       - name: ⚙ Build metadata-cli
         uses: actions-rs/cargo@v1
         with:
@@ -84,9 +80,8 @@ jobs:
         if: ${{ steps.checkout-pr.outputs.hasbranch == 'false' }}
         id: new-branch
         run: |
-          NAME="$BRANCH_PREFIX-$(date '+%Y-%m-%d')"
-          echo "name=name::$NAME" >> $GITHUB_OUTPUT
-          echo "DEBUG***** NAME=$NAME"
+          branchname="$BRANCH_PREFIX-$(date '+%Y-%m-%d')"
+          echo "branchname=$branchname" >> $GITHUB_OUTPUT
 
       - name: Create Pull Request if not exist
         if: ${{ steps.checkout-pr.outputs.switched == false }}
@@ -94,7 +89,7 @@ jobs:
         uses: peter-evans/create-pull-request@f22a7da129c901513876a2380e2dae9f8e145330
         with:
           commit-message: add signed QR image files
-          branch: ${{ steps.new-branch.outputs.name }}
+          branch: ${{ steps.new-branch.outputs.branchname }}
           delete-branch: true
           base: main
           title: '[Automated] New signed metadata QR image files'

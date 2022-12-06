@@ -22,24 +22,22 @@ jobs:
       - name: 🔧 Install rust dependencies
         uses: ./.github/workflows/rust-install
 
-      - name: Try to checkout exising PR branch
+      - name: Try to checkout existing PR branch
         id: checkout-pr
         run: |
           set -ex
           AUTO_SIGNED_BRANCH=$(git branch -r --list "origin/$BRANCH_PREFIX-*" --sort=-refname | head -n 1)
           if [ -z "$AUTO_SIGNED_BRANCH" ]
           then
-            echo "name=switched::false" >> $GITHUB_OUTPUT
+            echo "name=hasbranch::false" >> $GITHUB_OUTPUT
           else
             git checkout --track $AUTO_SIGNED_BRANCH
-            echo "name=switched::true" >> $GITHUB_OUTPUT
+            echo "name=hasbranch::true" >> $GITHUB_OUTPUT
           fi
           
       - name: Debug
         run: |
-          echo “**** sanitized=${{steps.checkout-pr.outputs.sanitized}}”
-          echo “**** switched=${{steps.checkout-pr.outputs.switched}}”
-          echo “**** OUTPUTS=${{ steps.checkout-pr.outputs }}”
+          echo “**** hasbranch=${{steps.checkout-pr.outputs.hasbranch}}”
           
       - name: ⚙ Build metadata-cli
         uses: actions-rs/cargo@v1
@@ -76,13 +74,13 @@ jobs:
           args: --release -- clean
 
       - name: 📌 Commit changes if PR exists
-        if: ${{ steps.checkout-pr.outputs.switched == 'true' }}
+        if: ${{ steps.checkout-pr.outputs.hasbranch == 'true' }}
         uses: ./.github/workflows/commit-changes
         with:
           message: 'metadata update'
 
       - name: New PR branch
-        if: ${{ steps.checkout-pr.outputs.switched == 'false' }}
+        if: ${{ steps.checkout-pr.outputs.hasbranch == 'false' }}
         id: new-branch
         run: |
           NAME="$BRANCH_PREFIX-$(date '+%Y-%m-%d')"

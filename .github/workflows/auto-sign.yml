@@ -29,15 +29,16 @@ jobs:
           AUTO_SIGNED_BRANCH=$(git branch -r --list "origin/$BRANCH_PREFIX-*" --sort=-refname | head -n 1)
           if [ -z "$AUTO_SIGNED_BRANCH" ]
           then
-            echo "name=hasbranch::false" >> $GITHUB_OUTPUT
+            hasbranch='false'
           else
             git checkout --track $AUTO_SIGNED_BRANCH
-            echo "name=hasbranch::true" >> $GITHUB_OUTPUT
+            hasbranch='true'
           fi
+          echo "name=hasbranch::$hasbranch" >> $GITHUB_OUTPUT
           
       - name: Debug
         run: |
-          echo “**** hasbranch=${{steps.checkout-pr.outputs.hasbranch}}”
+          echo "**** hasbranch=${{steps.checkout-pr.outputs.hasbranch}}"
           
       - name: ⚙ Build metadata-cli
         uses: actions-rs/cargo@v1
@@ -85,7 +86,7 @@ jobs:
         run: |
           NAME="$BRANCH_PREFIX-$(date '+%Y-%m-%d')"
           echo "name=name::$NAME" >> $GITHUB_OUTPUT
-          echo “DEBUG***** NAME=$NAME"
+          echo "DEBUG***** NAME=$NAME"
 
       - name: Create Pull Request if not exist
         if: ${{ steps.checkout-pr.outputs.switched == false }}

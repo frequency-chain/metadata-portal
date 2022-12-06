@@ -7,6 +7,7 @@ on:
     paths:
      - '**/*.yml'
      - '**/config.toml'
+     - 'public/qr/**'
 
 env:
   RUST_LOG: debug

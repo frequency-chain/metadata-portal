@@ -122,10 +122,12 @@ jobs:
           exit_code=$?
           if [ $exit_code -eq 12 ]
           then
-            echo "name=redeploy::true" >> $GITHUB_OUTPUT
+            redeploy='true'
+            echo "redeploy=$redeploy" >> $GITHUB_OUTPUT
             exit 0
           fi
-          echo "name=redeploy::false" >> $GITHUB_OUTPUT
+            redeploy='false'
+            echo "redeploy=$redeploy" >> $GITHUB_OUTPUT
           exit $exit_code
         shell: bash {0}
 

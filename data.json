@@ -3,7 +3,7 @@
     "vanityName": "Frequency",
     "title": "frequency",
     "color": "#4B64FF",
-    "rpcEndpoint": "wss://node-6999003637804199936.gx.onfinality.io/ws?apikey=31444de7-f7cd-4b04-8916-40f19a024293",
+    "rpcEndpoint": "wss://1.rpc.frequency.xyz",
     "genesisHash": "0x4a587bf17a404e3572747add7aab7bbe56e805a5479c6c436f07f36fcc8d3ae1",
     "unit": "FRQCY",
     "base58prefix": 90,
@@ -11,19 +11,19 @@
     "decimals": 8,
     "metadataVersion": 1,
     "metadataQr": {
-      "path": "qr/unsigned_frequency_metadata_1.apng",
-      "signedBy": null,
+      "path": "qr/frequency_metadata_1.apng",
+      "signedBy": "Frequency",
       "source": {
         "type": "Rpc",
-        "block": "0x4a587bf17a404e3572747add7aab7bbe56e805a5479c6c436f07f36fcc8d3ae1"
+        "block": "0x8fd2451f1e4d6aaac29100016f4abe9ff81db01b567b62b9f311036bb3ed73aa"
       }
     },
     "nextMetadataVersion": null,
     "nextMetadataQr": null,
     "latestMetadata": "qr/frequency_metadata_latest.apng",
     "specsQr": {
-      "path": "qr/unsigned_frequency_specs.png",
-      "signedBy": null,
+      "path": "qr/frequency_specs.png",
+      "signedBy": "Frequency",
       "source": null
     }
   },
@@ -39,19 +39,19 @@
     "decimals": 8,
     "metadataVersion": 2,
     "metadataQr": {
-      "path": "qr/unsigned_frequency-rococo_metadata_2.apng",
-      "signedBy": null,
+      "path": "qr/frequency-rococo_metadata_2.apng",
+      "signedBy": "Frequency",
       "source": {
         "type": "Rpc",
-        "block": "0x38ae4d9e4443b312cb1b45284b7fa930db9834c50db97d890af788bca0720487"
+        "block": "0x514315632259d18341c37061cfc041d1f195f3850058db43264b8b5c907ce98a"
       }
     },
     "nextMetadataVersion": null,
     "nextMetadataQr": null,
     "latestMetadata": "qr/frequency-rococo_metadata_latest.apng",
     "specsQr": {
-      "path": "qr/unsigned_frequency-rococo_specs.png",
-      "signedBy": null,
+      "path": "qr/frequency-rococo_specs.png",
+      "signedBy": "Frequency",
       "source": null
     }
   }

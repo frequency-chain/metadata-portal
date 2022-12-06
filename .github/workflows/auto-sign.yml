@@ -85,7 +85,7 @@ jobs:
       - name: Create PR branch if it doesn't already exist
         if: ${{ steps.checkout-pr-branch.outputs.hasbranch == 'false' }}
         id: cpr
-        uses: peter-evans/create-pull-request@f22a7da129c901513876a2380e2dae9f8e145330
+        uses: peter-evans/create-pull-request@v4
         with:
           commit-message: add signed QR image files
           branch: ${{ steps.new-branch.outputs.branchname }}
@@ -103,8 +103,7 @@ jobs:
           room_id: ${{ secrets.MATRIX_ROOM_ID }}
           access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
           server: ${{ secrets.MATRIX_SERVER }}
-          message: "# New metadata is available! 📑
-[GitHub PR#${{ steps.cpr.outputs.pull-request-number }}](${{ steps.cpr.outputs.pull-request-url }})"
+          message: "# New metadata is available! 📑 [GitHub PR#${{ steps.cpr.outputs.pull-request-number }}](${{ steps.cpr.outputs.pull-request-url }})"
 
   check-deployment:
     runs-on: ubuntu-latest

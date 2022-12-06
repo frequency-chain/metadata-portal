@@ -27,18 +27,13 @@ jobs:
         run: |
           set -ex
           AUTO_SIGNED_BRANCH=$(git branch -r --list "origin/$BRANCH_PREFIX-*" --sort=-refname | head -n 1)
-          switched='default'
-
           if [ -z "$AUTO_SIGNED_BRANCH" ]
           then
-            switched='false'
+            echo "name=switched::false" >> $GITHUB_OUTPUT
           else
             git checkout --track $AUTO_SIGNED_BRANCH
-            switched='true'
+            echo "name=switched::true" >> $GITHUB_OUTPUT
           fi
-          echo “name=switched::$switched” >> $GITHUB_OUTPUT
-          echo “DEBUG***** switched=$switched”
-          echo "sanitized=true" >> $GITHUB_OUTPUT
           
       - name: Debug
         run: |
@@ -81,13 +76,13 @@ jobs:
           args: --release -- clean
 
       - name: 📌 Commit changes if PR exists
-        if: ${{ steps.checkout-pr.outputs.switched == true }}
+        if: ${{ steps.checkout-pr.outputs.switched == 'true' }}
         uses: ./.github/workflows/commit-changes
         with:
           message: 'metadata update'
 
       - name: New PR branch
-        if: ${{ steps.checkout-pr.outputs.switched == false }}
+        if: ${{ steps.checkout-pr.outputs.switched == 'false' }}
         id: new-branch
         run: |
           NAME="$BRANCH_PREFIX-$(date '+%Y-%m-%d')"

@@ -5,6 +5,11 @@ on:
   schedule:
     - cron: '0 0 * * *'
 
+  # XXX Debug only
+  push:
+    branches:
+      - ci-fix-dmitri
+
 env:
   BRANCH_PREFIX: auto-signed
   NOTIFY_MATRIX: false
@@ -22,12 +27,11 @@ jobs:
       - name: 🔧 Install rust dependencies
         uses: ./.github/workflows/rust-install
 
-      - name: Try to checkout exising PR branch
+      - name: Try to checkout existing PR branch
         id: checkout-pr
         run: |
           set -ex
           AUTO_SIGNED_BRANCH=$(git branch -r --list "origin/$BRANCH_PREFIX-*" --sort=-refname | head -n 1)
-          switched='default'
 
           if [ -z "$AUTO_SIGNED_BRANCH" ]
           then
@@ -36,15 +40,13 @@ jobs:
             git checkout --track $AUTO_SIGNED_BRANCH
             switched='true'
           fi
-          echo “name=switched::$switched” >> $GITHUB_OUTPUT
-          echo “DEBUG***** switched=$switched”
-          echo "sanitized=true" >> $GITHUB_OUTPUT
+          
+          echo "**** switched=$switched"
+          echo "switched=$switched" >> $GITHUB_OUTPUT
           
       - name: Debug
         run: |
-          echo “**** sanitized=${{steps.checkout-pr.outputs.sanitized}}”
-          echo “**** switched=${{steps.checkout-pr.outputs.switched}}”
-          echo “**** OUTPUTS=${{ steps.checkout-pr.outputs }}”
+          echo "**** switched=${{steps.checkout-pr.outputs.switched}}"
           
       - name: ⚙ Build metadata-cli
         uses: actions-rs/cargo@v1
@@ -81,21 +83,21 @@ jobs:
           args: --release -- clean
 
       - name: 📌 Commit changes if PR exists
-        if: ${{ steps.checkout-pr.outputs.switched == true }}
+        if: steps.checkout-pr.outputs.switched == 'true'
         uses: ./.github/workflows/commit-changes
         with:
           message: 'metadata update'
 
       - name: New PR branch
-        if: ${{ steps.checkout-pr.outputs.switched == false }}
+        if: steps.checkout-pr.outputs.switched == 'false'
         id: new-branch
         run: |
           NAME="$BRANCH_PREFIX-$(date '+%Y-%m-%d')"
           echo "name=name::$NAME" >> $GITHUB_OUTPUT
-          echo “DEBUG***** NAME=$NAME"
+          echo "DEBUG***** NAME=$NAME"
 
       - name: Create Pull Request if not exist
-        if: ${{ steps.checkout-pr.outputs.switched == false }}
+        if: steps.checkout-pr.outputs.switched == 'false'
         id: cpr
         uses: peter-evans/create-pull-request@f22a7da129c901513876a2380e2dae9f8e145330
         with:
@@ -110,7 +112,7 @@ jobs:
 
       - name: Notify Matrix channel
         uses: s3krit/matrix-message-action@v0.0.3
-        if: ${{ env.NOTIFY_MATRIX == 'true' && steps.cpr.outputs.pull-request-operation == 'created' }}
+        if: env.NOTIFY_MATRIX == 'true' && steps.cpr.outputs.pull-request-operation == 'created'
         with:
           room_id: ${{ secrets.MATRIX_ROOM_ID }}
           access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
@@ -142,10 +144,10 @@ jobs:
         shell: bash {0}
 
       - name: ⚙ Run collector
-        if: ${{ steps.check-deployment.outputs.redeploy == 'true' }}
+        if: steps.check-deployment.outputs.redeploy == 'true'
         run: make collector
 
-      - if: ${{ steps.check-deployment.outputs.redeploy == 'true' }}
+      - if: steps.check-deployment.outputs.redeploy == 'true'
         uses: ./.github/workflows/deploy
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

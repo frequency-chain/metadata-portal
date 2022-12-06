@@ -34,7 +34,7 @@ jobs:
             git checkout --track $AUTO_SIGNED_BRANCH
             hasbranch='true'
           fi
-          echo "name=hasbranch::$hasbranch" >> $GITHUB_OUTPUT
+          echo "hasbranch=$hasbranch" >> $GITHUB_OUTPUT
           
       - name: Debug
         run: |

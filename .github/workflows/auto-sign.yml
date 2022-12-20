@@ -100,15 +100,6 @@ jobs:
             If the Metadata Portal needs updated data, inspect the data.json file to determine whether it is correct and then merge this PR.
           draft: true
 
-      - name: Notify Matrix channel
-        uses: s3krit/matrix-message-action@v0.0.3
-        if: ${{ env.NOTIFY_MATRIX == 'true' && steps.cpr.outputs.pull-request-operation == 'created' }}
-        with:
-          room_id: ${{ secrets.MATRIX_ROOM_ID }}
-          access_token: ${{ secrets.MATRIX_ACCESS_TOKEN }}
-          server: ${{ secrets.MATRIX_SERVER }}
-          message: "# New metadata is available! 📑 [GitHub PR#${{ steps.cpr.outputs.pull-request-number }}](${{ steps.cpr.outputs.pull-request-url }})"
-
   check-deployment:
     runs-on: ubuntu-latest
     steps:

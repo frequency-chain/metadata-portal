@@ -139,8 +139,6 @@ pub(crate) async fn autosign_from_github(config: AppConfig) -> anyhow::Result<()
                         &wasm.version, metadata_file_version
                     );
                     break;
-                } else {
-                    continue;
                 }
             }
             if needs_updating == false {

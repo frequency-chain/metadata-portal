@@ -100,14 +100,17 @@ pub(crate) fn generate_signed_spec_qr(
 }
 
 pub(crate) fn generate_signed_metadata_qr(
+    chain_name: &str,
     pair: &sp_core::sr25519::Pair,
     meta_values: &MetaValues,
     genesis_hash: &H256,
     target_dir: &Path,
 ) -> anyhow::Result<PathBuf> {
-    log::debug!("generate_signed_metadata_qr()");
+    log::debug!("generate_signed_metadata_qr({})", chain_name);
 
     let content = ContentLoadMeta::generate(&meta_values.meta, genesis_hash);
+
+    log::debug!("Chain is {}", &meta_values.name.to_lowercase());
 
     let file_name = QrFileName::new(
         &meta_values.name.to_lowercase(),
@@ -115,6 +118,7 @@ pub(crate) fn generate_signed_metadata_qr(
         true,
     )
     .to_string();
+
     let path = target_dir.join(&file_name);
     let signed_qr = QrPath::try_from(&path).ok().unwrap();
 

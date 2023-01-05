@@ -18,16 +18,8 @@
         "block": "0x8fd2451f1e4d6aaac29100016f4abe9ff81db01b567b62b9f311036bb3ed73aa"
       }
     },
-    "nextMetadataVersion": 3,
-    "nextMetadataQr": {
-      "path": "qr/frequency_metadata_3.apng",
-      "signedBy": "Frequency",
-      "source": {
-        "type": "Wasm",
-        "github_repo": "LibertyDSNP/frequency",
-        "hash": "0x83cac7f17379332bb59db0ae31b4c7b532e357f85284a3f8dae2533e104c6aa1"
-      }
-    },
+    "nextMetadataVersion": null,
+    "nextMetadataQr": null,
     "latestMetadata": "qr/frequency_metadata_latest.apng",
     "specsQr": {
       "path": "qr/frequency_specs.png",

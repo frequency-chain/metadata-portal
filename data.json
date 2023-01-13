@@ -9,17 +9,8 @@
     "base58prefix": 90,
     "logo": "frequency",
     "decimals": 8,
-    "metadataVersion": 1,
+    "metadataVersion": 5,
     "metadataQr": {
-      "path": "qr/frequency_metadata_1.apng",
-      "signedBy": "Frequency",
-      "source": {
-        "type": "Rpc",
-        "block": "0x8fd2451f1e4d6aaac29100016f4abe9ff81db01b567b62b9f311036bb3ed73aa"
-      }
-    },
-    "nextMetadataVersion": 5,
-    "nextMetadataQr": {
       "path": "qr/frequency_metadata_5.apng",
       "signedBy": "Frequency",
       "source": {
@@ -28,6 +19,8 @@
         "hash": "0x1b10d8c61aaf2d0c6991435d1d13628e137d17a87ef8f6b747b8d499912e62f8"
       }
     },
+    "nextMetadataVersion": null,
+    "nextMetadataQr": null,
     "latestMetadata": "qr/frequency_metadata_latest.apng",
     "specsQr": {
       "path": "qr/frequency_specs.png",

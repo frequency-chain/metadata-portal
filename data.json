@@ -26,7 +26,7 @@
       "source": {
         "type": "Wasm",
         "github_repo": "LibertyDSNP/frequency",
-        "hash": "0x17f64ee490508c9026b719fc8dbe7a2cb9eca8f6a77a626a6491efa076d1bef2"
+        "hash": "0xc275fcc947f3304246a904d1a0139b8f198aad4a46692484c493c5b0025f396f"
       }
     },
     "latestMetadata": "qr/frequency_metadata_latest.apng",
@@ -63,7 +63,7 @@
       "source": {
         "type": "Wasm",
         "github_repo": "LibertyDSNP/frequency",
-        "hash": "0x7c050479f2b3110f6a27e90bb4c6c72b1c378b37532e7953afdc6b2acc060ddb"
+        "hash": "0xaa1c9aa3ab0e1141bd9e1eee438cc09f7f83431c38f23d35bf74f52e3238902a"
       }
     },
     "latestMetadata": "qr/frequency-rococo_metadata_latest.apng",

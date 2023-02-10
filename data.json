@@ -9,26 +9,18 @@
     "base58prefix": 90,
     "logo": "frequency",
     "decimals": 8,
-    "metadataVersion": 5,
+    "metadataVersion": 11,
     "metadataQr": {
-      "path": "qr/frequency_metadata_5.apng",
+      "path": "qr/frequency_metadata_11.apng",
       "signedBy": "Frequency",
       "source": {
         "type": "Wasm",
         "github_repo": "LibertyDSNP/frequency",
-        "hash": "0x1b10d8c61aaf2d0c6991435d1d13628e137d17a87ef8f6b747b8d499912e62f8"
+        "hash": "0x5fe46d8d93479494d040e6bfb46019dad546c0addbeda911eebe6cc3b9ddfd7c"
       }
     },
-    "nextMetadataVersion": 6,
-    "nextMetadataQr": {
-      "path": "qr/frequency_metadata_6.apng",
-      "signedBy": "Frequency",
-      "source": {
-        "type": "Wasm",
-        "github_repo": "LibertyDSNP/frequency",
-        "hash": "0xc275fcc947f3304246a904d1a0139b8f198aad4a46692484c493c5b0025f396f"
-      }
-    },
+    "nextMetadataVersion": null,
+    "nextMetadataQr": null,
     "latestMetadata": "qr/frequency_metadata_latest.apng",
     "specsQr": {
       "path": "qr/frequency_specs.png",

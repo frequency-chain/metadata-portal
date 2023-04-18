@@ -19,8 +19,16 @@
         "hash": "0xb16aa61e976fcd91cb392bcf97812bf270e808ca6917b48612de3517f3476cfb"
       }
     },
-    "nextMetadataVersion": null,
-    "nextMetadataQr": null,
+    "nextMetadataVersion": 28,
+    "nextMetadataQr": {
+      "path": "qr/frequency_metadata_28.apng",
+      "signedBy": "Frequency",
+      "source": {
+        "type": "Wasm",
+        "github_repo": "LibertyDSNP/frequency",
+        "hash": "0x459e73c29df8fb7d899d14acb9d6ed37deba8336ff34b813a6e200956fe520ec"
+      }
+    },
     "latestMetadata": "qr/frequency_metadata_latest.apng",
     "specsQr": {
       "path": "qr/frequency_specs.png",
@@ -48,8 +56,16 @@
         "hash": "0x98e5e92466c2c15b5ede0159bf83fe5e29e79bbda662f21237972a002258b3b5"
       }
     },
-    "nextMetadataVersion": null,
-    "nextMetadataQr": null,
+    "nextMetadataVersion": 28,
+    "nextMetadataQr": {
+      "path": "qr/frequency-rococo_metadata_28.apng",
+      "signedBy": "Frequency",
+      "source": {
+        "type": "Wasm",
+        "github_repo": "LibertyDSNP/frequency",
+        "hash": "0x8ff3227dca7fd342525af7e761ff1a3f79901084723661812becf6dccde2c8ba"
+      }
+    },
     "latestMetadata": "qr/frequency-rococo_metadata_latest.apng",
     "specsQr": {
       "path": "qr/frequency-rococo_specs.png",

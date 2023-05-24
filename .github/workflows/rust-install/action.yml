@@ -7,12 +7,10 @@ runs:
         sudo apt install -y clang libclang-dev libopencv-dev
       shell: bash
 
-    - name: 🔧 Install stable toolchain
-      uses: actions-rs/toolchain@b2417cde72dcf67f306c0ae8e0828a81bf0b189f
-      with:
-        profile: minimal
-        toolchain: stable
-        components: clippy, rustfmt
+      - name: 🔧 Install Rust (Stable)
+      run: |
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+      shell: bash
 
-    - name: Rust Cache
-      uses: Swatinem/rust-cache@842ef286fff290e445b90b4002cc9807c3669641
+      - name: 💾 Rust Cache
+      uses: Swatinem/rust-cache@v2

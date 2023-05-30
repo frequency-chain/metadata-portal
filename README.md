@@ -2,7 +2,7 @@
 
 Metadata Portal is a self-hosted web page that shows you the latest metadata for a given network.
 
-This is an important addition to [Polkadot Vault](https://signer.parity.io), which can update the metadata inside only through a special video QR code without going online. 
+This is an important addition to Signer, which can update the metadata inside only through a special video QR code without going online. 
 Parity will host its own version of the page for all chains for which we sign the metadata. 
 External users (chain owners) will be able to deploy their versions of metadata portal if they want.
 
@@ -17,13 +17,17 @@ Metadata Portal supports two metadata sources in parallel. Both are equally impo
 This flow is important for all users who want to always have the latest metadata in their signing devices to parse and sign their transactions right away.
 
 - Cron job
-  - runs everyday at 0:00 UTC and checks every known network for the latest metadata version
+  - runs every N hours and checks every known network for the latest metadata version
   - If any network has a new version of metadata that has not yet been published on the Metadata Portal
-    - automatically generates signed metadata and spec QR codes
+    - generates unsigned metadata QR code
     - creates new pull request to the repo
-    - sends notification to a Matrix channel (optional)
+    - sends notification to a Matrix channel
+- Release manager
+  - checkouts pull request's branch locally
+  - runs `make signer` locally to sign new metadata using his signing air-gapped device
+  - commit and push changes to the same branch
 - Owner of the repository
-  - accepts and merges the pull request
+  - accept and merge the PR
 - Github action is triggered to regenerate and re-deploy the Github Page
 
 ### 2. Showing manually uploaded and signed QR codes via PRs
@@ -37,7 +41,7 @@ This flow is for security-oriented users and Parity itself. It allows chain owne
 
 ## Deployment
 ### Requirements
-1. Install [Polkadot Vault](https://signer.parity.io) on your signing device
+1. install https://github.com/paritytech/parity-signer to your signing device
 
 ### Steps
 
@@ -45,7 +49,7 @@ You can use Github Pages to host the metadata-portal for your set of chains
 1. Fork this repo
 2. Edit `config.toml`
    1. Add/remove chains
-   2. Edit signer's name and public key. The key can be exported from [Parity Vault](https://signer.parity.io)
+   2. Edit signer's name and public key. The key can be exported from [parity-signer](https://github.com/paritytech/parity-signer)
 3. Configure GitHub Pages to build from `gh-pages` branch (`Settings` -> `Pages` -> `Source`)
 4. Edit domain name in:
    1. `homepage` field in `package.json`
@@ -85,7 +89,7 @@ Additionally, please make sure to install `clang` package or its derivative that
 * Gentoo, Fedora: `clang`
 * Debian, Ubuntu: `clang` and `libclang-dev`
 
-#### macOS:
+#### MacOs:
 
 `brew install opencv`
 

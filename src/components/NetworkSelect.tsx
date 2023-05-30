@@ -1,7 +1,7 @@
 import { Listbox } from "@headlessui/react";
 import { icon } from "../icons";
 import { Chains } from "../scheme";
-import { capitalizeFirstLetter, cn } from "../utils";
+import { cn, title } from "../utils";
 
 export const NetworkSelect = ({
   chains,
@@ -28,7 +28,7 @@ export const NetworkSelect = ({
               >
                 <img src={icon(chain)} className="w-8 rounded-full" />
                 <div className="text-lg">
-                  {capitalizeFirstLetter(chains[chain].title)}
+                  {title(chains[chain].title)}
                 </div>
               </div>
             )}

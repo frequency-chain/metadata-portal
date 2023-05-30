@@ -1,8 +1,15 @@
 import { Portals } from "./scheme";
 
-export function capitalizeFirstLetter(string: string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+export function title(input: string) {
+  // Split the input string into an array of words
+  const words = input.split('-');
+
+  // Capitalize each word and join them with spaces
+  const convertedString = words
+    .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
+  return convertedString;}
 
 export function cn(...classes: (string | boolean | undefined)[]) {
   return classes.filter(Boolean).join(" ");

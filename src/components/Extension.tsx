@@ -9,7 +9,7 @@ import {
 import { ChainSpec } from "../scheme";
 import Dropdown from "./Dropdown";
 import Button from "./Button";
-import { capitalizeFirstLetter } from "../utils";
+import { title } from "../utils";
 
 export default function Extension(chainSpec: ChainSpec) {
   const [selected, setSelected] = useState<InjectedExtension | undefined>(
@@ -28,7 +28,7 @@ export default function Extension(chainSpec: ChainSpec) {
   }
 
   const meta: MetadataDef = {
-    chain: capitalizeFirstLetter(chainSpec.title),
+    chain: title(chainSpec.title),
     genesisHash: chainSpec.genesisHash,
     icon: chainSpec.logo,
     specVersion: chainSpec.liveMetaVersion,

@@ -1,0 +1,21 @@
+name: Verify
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'public/qr/**'
+      - 'config.toml'
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🛎 Checkout
+        uses: actions/checkout@v3
+
+      - uses: ./.github/workflows/rust-install
+
+      - name: ⚙ Run verifier
+        run: cargo run --release -- verify

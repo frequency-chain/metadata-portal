@@ -44,9 +44,7 @@ export const NetworkSelectMobile = ({
                     )}
                   >
                     <img src={icon(chain)} className="w-8 rounded-full" />
-                    <div className="text-xl">
-                      {title(chains[chain].title)}
-                    </div>
+                    <div className="text-xl">{title(chains[chain].title)}</div>
                   </div>
                 )}
               </Listbox.Option>

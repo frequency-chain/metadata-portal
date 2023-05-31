@@ -14,6 +14,6 @@ const ICONS = {
 };
 
 export function icon(network_name: string) {
-  const network = network_name.replace(/-/g, '_');
+  const network = network_name.replace(/-/g, "_");
   return ICONS[network as "polkadot"];
 }

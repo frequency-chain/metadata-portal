@@ -27,9 +27,7 @@ export const NetworkSelect = ({
                 )}
               >
                 <img src={icon(chain)} className="w-8 rounded-full" />
-                <div className="text-lg">
-                  {title(chains[chain].title)}
-                </div>
+                <div className="text-lg">{title(chains[chain].title)}</div>
               </div>
             )}
           </Listbox.Option>

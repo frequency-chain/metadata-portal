@@ -94,9 +94,9 @@ export const Network = ({ spec }: { spec: ChainSpec }) => {
                 {!metadataQr && (
                   <div className="flex aspect-square text-center">
                     <div className="m-auto">
-                      The metadata for {title(spec.title)} Network is out of date.
-                      Request the new metadata version by creating a Github
-                      issue.
+                      The metadata for {title(spec.title)} Network is out of
+                      date. Request the new metadata version by creating a
+                      Github issue.
                       {createGithubIssueLink}
                     </div>
                   </div>

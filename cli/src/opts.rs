@@ -28,7 +28,7 @@ pub(crate) enum SubCommand {
 
     /// Update and autosign QR codes.
     AutoSign(UpdateOpts),
-    
+
     /// Check updates
     Update(UpdateOpts),
 

@@ -28,7 +28,7 @@ export default function App() {
   useEffect(() => {
     if (Object.keys(chains).length === 0 || currentChain) return;
 
-    const locationChain = location.hash.replace("#/", "");
+    const locationChain = window.location.hash.replace("#/", "");
     const network =
       (Object.keys(chains).includes(locationChain) && locationChain) ||
       Object.keys(chains)[0];
@@ -36,7 +36,7 @@ export default function App() {
   }, [chains]);
 
   useEffect(() => {
-    if (currentChain) location.assign("#/" + currentChain);
+    if (currentChain) window.location.assign("#/" + currentChain);
   }, [currentChain]);
 
   if (!spec) return null;

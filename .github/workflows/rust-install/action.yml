@@ -13,4 +13,4 @@ runs:
       shell: bash
 
     - name: 💾 Rust Cache
-      uses: Swatinem/rust-cache@v2
+      uses: swatinem/rust-cache@988c164c3d0e93c4dbab36aaf5bbeb77425b2894

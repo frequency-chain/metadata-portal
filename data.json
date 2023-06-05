@@ -1,6 +1,5 @@
 {
   "frequency": {
-    "vanityName": "Frequency",
     "title": "frequency",
     "color": "#4B64FF",
     "rpcEndpoint": "wss://1.rpc.frequency.xyz",
@@ -9,18 +8,19 @@
     "base58prefix": 90,
     "logo": "frequency",
     "decimals": 8,
-    "metadataVersion": 30,
+    "liveMetaVersion": 30,
     "metadataQr": {
-      "path": "qr/frequency_metadata_30.apng",
-      "signedBy": "Frequency",
-      "source": {
-        "type": "Wasm",
-        "github_repo": "LibertyDSNP/frequency",
-        "hash": "0x10883519517ecee74ee2ca4c3a7d47ce8dea260ccfa1542ec8255ba9eca949a0"
+      "version": 30,
+      "file": {
+        "path": "qr/frequency_metadata_30.apng",
+        "signedBy": "Frequency",
+        "source": {
+          "type": "Wasm",
+          "github_repo": "LibertyDSNP/frequency",
+          "hash": "0x10883519517ecee74ee2ca4c3a7d47ce8dea260ccfa1542ec8255ba9eca949a0"
+        }
       }
     },
-    "nextMetadataVersion": null,
-    "nextMetadataQr": null,
     "latestMetadata": "qr/frequency_metadata_latest.apng",
     "specsQr": {
       "path": "qr/frequency_specs.png",
@@ -29,7 +29,6 @@
     }
   },
   "frequency-rococo": {
-    "vanityName": "Frequency Rococo",
     "title": "frequency-rococo",
     "color": "#29FD47",
     "rpcEndpoint": "wss://rpc.rococo.frequency.xyz",
@@ -38,18 +37,8 @@
     "base58prefix": 42,
     "logo": "frequency-rococo",
     "decimals": 8,
-    "metadataVersion": 30,
-    "metadataQr": {
-      "path": "qr/frequency-rococo_metadata_30.apng",
-      "signedBy": "Frequency",
-      "source": {
-        "type": "Wasm",
-        "github_repo": "LibertyDSNP/frequency",
-        "hash": "0xe8f0dcef4ae28208bd3f035cde7dc789ad9da67090acd2673fb105c02d785aa4"
-      }
-    },
-    "nextMetadataVersion": null,
-    "nextMetadataQr": null,
+    "liveMetaVersion": 35,
+    "metadataQr": null,
     "latestMetadata": "qr/frequency-rococo_metadata_latest.apng",
     "specsQr": {
       "path": "qr/frequency-rococo_specs.png",

@@ -1,11 +1,11 @@
-name: Auto Sign
+name: Auto Sign and Merge Update
 
 concurrency:
   group: ${{github.workflow}}
   cancel-in-progress: true
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # via manual trigger
   schedule:
     - cron: '0 0 * * *' # at midnight
 
@@ -39,44 +39,26 @@ jobs:
           echo "hasbranch=$hasbranch" >> $GITHUB_OUTPUT
 
       - name: ⚙ Clean metadata-cli
-        uses: actions-rs/cargo@ae10961054e4aa8b4aa7dffede299aaf087aa33b
-        with:
-          command: clean
-          args: --release
+        run: cargo clean --release
 
       - name: ⚙ Build metadata-cli
-        uses: actions-rs/cargo@ae10961054e4aa8b4aa7dffede299aaf087aa33b
-        with:
-          command: build
-          args: --release
+        run: cargo build --release
 
       - name: ⚙ Autosign QRs from RPC nodes
-        uses: actions-rs/cargo@ae10961054e4aa8b4aa7dffede299aaf087aa33b
         env:
           SIGNING_SEED_PHRASE: ${{secrets.SIGNING_SEED_PHRASE}}
-        with:
-          command: run
-          args: --release -- auto-sign --source node
+        run: cargo run --release -- auto-sign --source node
 
       - name: ⚙ Autosign QRs from GitHub releases
-        uses: actions-rs/cargo@ae10961054e4aa8b4aa7dffede299aaf087aa33b
         env:
           SIGNING_SEED_PHRASE: ${{secrets.SIGNING_SEED_PHRASE}}
-        with:
-          command: run
-          args: --release -- auto-sign --source github
+        run: cargo run --release -- auto-sign --source github
 
       - name: ⚙ Run Collector
-        uses: actions-rs/cargo@ae10961054e4aa8b4aa7dffede299aaf087aa33b
-        with:
-          command: run
-          args: --release -- collect
+        run: cargo run --release -- collect
 
       - name: ⚙ Run Cleaner
-        uses: actions-rs/cargo@ae10961054e4aa8b4aa7dffede299aaf087aa33b
-        with:
-          command: run
-          args: --release -- clean
+        run: cargo run --release -- clean
 
       - name: 📌 Commit changes if PR branch exists
         if: ${{ steps.checkout-pr-branch.outputs.hasbranch == 'true' }}
@@ -103,7 +85,12 @@ jobs:
           title: '[Automated] Updated signed metadata QR image files'
           body: |
             If the Metadata Portal needs updated data, inspect the data.json file to determine whether it is correct and then merge this PR.
-          draft: true
+          draft: false
+
+      - name: Enable Pull Request Automerge
+        run: gh pr merge --squash --auto ${{ steps.cpr.outputs.pull-request-number }}
+        env:
+          GH_TOKEN: ${{ github.token }}
 
   check-deployment:
     runs-on: ubuntu-latest

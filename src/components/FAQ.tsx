@@ -38,9 +38,9 @@ export const FAQ = () => (
           <p>
             Polkadot Vault is a cold storage solution that turns your iOS or
             Android device into a dedicated hardware wallet for Polkadot,
-            Frequency, and other Substrate-based chains. Your keys are kept secure
-            (i.e. offline) at all times, and transactions are signed in an
-            air-gapped way via QR-codes.
+            Frequency, and other Substrate-based chains. Your keys are kept
+            secure (i.e. offline) at all times, and transactions are signed in
+            an air-gapped way via QR-codes.
           </p>
         </Disclosure.Panel>
       </Disclosure>

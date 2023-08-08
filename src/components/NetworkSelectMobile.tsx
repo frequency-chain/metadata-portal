@@ -40,11 +40,13 @@ export const NetworkSelectMobile = ({
                   <div
                     className={cn(
                       "flex items-center space-x-2 px-2 py-1",
-                      selected && "bg-neutral-100 rounded-full"
+                      selected && "bg-neutral-100 rounded-full",
                     )}
                   >
                     <img src={icon(chain)} className="w-8 rounded-full" />
-                    <div className="text-xl">{formatTitle(chains[chain].title)}</div>
+                    <div className="text-xl">
+                      {formatTitle(chains[chain].title)}
+                    </div>
                   </div>
                 )}
               </Listbox.Option>

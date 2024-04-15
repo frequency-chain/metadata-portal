@@ -2,7 +2,7 @@
   "frequency": {
     "title": "frequency",
     "color": "#4B64FF",
-    "rpcEndpoint": "wss://frequency-rpc.dwellir.com",
+    "rpcEndpoint": "wss://1.rpc.frequency.xyz",
     "genesisHash": "0x4a587bf17a404e3572747add7aab7bbe56e805a5479c6c436f07f36fcc8d3ae1",
     "unit": "FRQCY",
     "base58prefix": 90,

@@ -1,16 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.96da1c66.css",
-    "main.js": "/static/js/main.3280e299.js",
+    "main.js": "/static/js/main.25d94e2c.js",
     "static/media/polkadot.svg": "/static/media/polkadot.7e356a76d93533052931dda2c013650e.svg",
     "index.html": "/index.html",
     "static/media/vault.svg": "/static/media/vault.1aa02aa17789e8cf6d405b6deddda21c.svg",
-    "static/media/frequency.svg": "/static/media/frequency.515d20f9406020b8eb00cd9987947ef1.svg",
+    "static/media/frequency-testnet.svg": "/static/media/frequency-testnet.b507074efceb7b3767829ae99e54a30c.svg",
+    "static/media/frequency.svg": "/static/media/frequency.855036cbc7d280ed1bb5a84d1f412936.svg",
     "main.96da1c66.css.map": "/static/css/main.96da1c66.css.map",
-    "main.3280e299.js.map": "/static/js/main.3280e299.js.map"
+    "main.25d94e2c.js.map": "/static/js/main.25d94e2c.js.map"
   },
   "entrypoints": [
     "static/css/main.96da1c66.css",
-    "static/js/main.3280e299.js"
+    "static/js/main.25d94e2c.js"
   ]
 }

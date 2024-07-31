@@ -13,12 +13,12 @@ version = "0.1.0"
 [dependencies]
 assert_cmd = "2.0"
 clap = { version = "4.1.14", features = ["derive", "env", "unicode", "cargo"] }
-env_logger = "0.10.0"
+env_logger = "0.11.5"
 log = "0.4"
 anyhow = "1.0"
-toml = "0.7.3"
+toml = "0.8.17"
 serde = { version = "1.0", features = ["derive"] }
-dialoguer = "0.10"
+dialoguer = "0.11"
 qr_reader_phone = { git = "https://github.com/novasamatech/parity-signer", rev = "66ddf931" }
 qr_reader_pc = { git = "https://github.com/novasamatech/parity-signer", rev = "66ddf931" }
 definitions = { git = "https://github.com/novasamatech/parity-signer", rev = "66ddf931" }
@@ -28,7 +28,7 @@ tempfile = "3.5"
 sp-core = { git = "https://github.com/paritytech/substrate", default-features = false, features = [
   "full_crypto",
 ] }
-parity-scale-codec = "3.4.0"
+parity-scale-codec = "3.6.12"
 image = "0.24"
 quircs = "0.10"
 hex = "0.4"
@@ -43,7 +43,7 @@ blake2-rfc = "0.2.18"
 indexmap = { version = "1", features = ["serde"] }
 
 [dependencies.opencv]
-version = "0.92.1"
+version = "0.88.9"
 default-features = false
 features = ["videoio", "imgproc", "highgui"]
 

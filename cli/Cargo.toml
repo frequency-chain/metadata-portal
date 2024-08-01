@@ -43,11 +43,6 @@ blake2-rfc = "0.2.18"
 indexmap = { version = "1", features = ["serde"] }
 
 [dependencies.opencv]
-version = "0.88.9"
+version = "0.92.2"
 default-features = false
 features = ["videoio", "imgproc", "highgui"]
-
-[lints.rust]
-unexpected_cfgs = { level = "warn", check-cfg = [
-  'cfg(ocvrs_opencv_branch_32)',
-] }

@@ -37,15 +37,15 @@
     "base58prefix": 42,
     "logo": "frequency-testnet",
     "decimals": 8,
-    "liveMetaVersion": 136,
+    "liveMetaVersion": 141,
     "metadataQr": {
-      "version": 136,
+      "version": 141,
       "file": {
-        "path": "qr/frequency-testnet_metadata_136.apng",
+        "path": "qr/frequency-testnet_metadata_141.apng",
         "signedBy": "Frequency",
         "source": {
           "type": "Rpc",
-          "block": "0x937a22d79c5b232b5101ae489952ebc2378715e6aeaed9efe1e6178f7d55ee1d"
+          "block": "0xfaecf8e7a7dc790f7a26b37b19b0487ec42d63bce713d6831c93274a4c39eaf1"
         }
       }
     },

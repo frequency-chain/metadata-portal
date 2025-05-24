@@ -8,15 +8,15 @@
     "base58prefix": 90,
     "logo": "frequency",
     "decimals": 8,
-    "liveMetaVersion": 135,
+    "liveMetaVersion": 154,
     "metadataQr": {
-      "version": 135,
+      "version": 154,
       "file": {
-        "path": "qr/frequency_metadata_135.apng",
+        "path": "qr/frequency_metadata_154.apng",
         "signedBy": "Frequency",
         "source": {
           "type": "Rpc",
-          "block": "0xc2c11382d28f00349c661085b6c5fb2327ed91642f3675d77d985d89b110d30e"
+          "block": "0x7e72ad10e3f3dcf3db9b1f61d29dccd63ef7672bf96988ebf3c27d800daa9435"
         }
       }
     },
@@ -37,15 +37,15 @@
     "base58prefix": 42,
     "logo": "frequency-testnet",
     "decimals": 8,
-    "liveMetaVersion": 153,
+    "liveMetaVersion": 154,
     "metadataQr": {
-      "version": 153,
+      "version": 154,
       "file": {
-        "path": "qr/frequency-testnet_metadata_153.apng",
+        "path": "qr/frequency-testnet_metadata_154.apng",
         "signedBy": "Frequency",
         "source": {
           "type": "Rpc",
-          "block": "0x59b7744f811df1b4a9baffaac25d4588cee58ff4d7085acc1b65889f0d1db549"
+          "block": "0xf07ce7db51fc6440791b8f9ce7e6a196ca4d4984d0d0ecfb36ebb1982dd331ca"
         }
       }
     },

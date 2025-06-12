@@ -64,12 +64,12 @@ export const Network = ({
   return (
     <div>
       <div className="hidden xl:flex items-center justify-between mb-10">
-        <div className="flex items-center space-x-2 text-[40px] leading-none unbounded">
+        <div className="flex items-center space-x-2 text-[40px] leading-none poppins">
           <img
             src={icon(chainPortalId)}
             className="w-14 h-14 rounded-full bg-neutral-200"
           />
-          <span>{formatTitle(spec.title)}</span>
+          <span className="font-bold">{formatTitle(spec.title)}</span>
         </div>
         <Links />
       </div>

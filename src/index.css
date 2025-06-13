@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Inter&family=Unbounded&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 /*
 @font-face {
   font-family: "Web3-Regular";
@@ -15,11 +15,11 @@
 } */
 
 body {
-  font-family: "Inter";
+  font-family: "Poppins";
 }
 
-.unbounded {
-  font-family: "Unbounded";
+.poppins {
+  font-family: "Poppins";
 }
 
 @layer components {

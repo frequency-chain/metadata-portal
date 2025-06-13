@@ -1,7 +1,7 @@
 {
   "frequency": {
     "title": "frequency",
-    "color": "#772570",
+    "color": "#790E70",
     "rpcEndpoint": "wss://1.rpc.frequency.xyz",
     "genesisHash": "0x4a587bf17a404e3572747add7aab7bbe56e805a5479c6c436f07f36fcc8d3ae1",
     "unit": "FRQCY",
@@ -30,7 +30,7 @@
   },
   "frequency-testnet": {
     "title": "frequency-testnet",
-    "color": "#bc86b7",
+    "color": "#BC86B7",
     "rpcEndpoint": "wss://0.rpc.testnet.amplica.io",
     "genesisHash": "0x203c6838fc78ea3660a2f298a58d859519c72a5efdc0f194abd6f0d5ce1838e0",
     "unit": "XRQCY",

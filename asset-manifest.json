@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.96da1c66.css",
-    "main.js": "/static/js/main.25d94e2c.js",
+    "main.css": "/static/css/main.7520e5a1.css",
+    "main.js": "/static/js/main.50adfd1b.js",
     "static/media/polkadot.svg": "/static/media/polkadot.7e356a76d93533052931dda2c013650e.svg",
+    "static/media/frequency.svg": "/static/media/frequency.72090078c723af286ac4c2c6ec138abc.svg",
     "index.html": "/index.html",
+    "static/media/frequency-testnet.svg": "/static/media/frequency-testnet.09b1f44533229b5aa86fdf09348591b2.svg",
     "static/media/vault.svg": "/static/media/vault.1aa02aa17789e8cf6d405b6deddda21c.svg",
-    "static/media/frequency-testnet.svg": "/static/media/frequency-testnet.b507074efceb7b3767829ae99e54a30c.svg",
-    "static/media/frequency.svg": "/static/media/frequency.855036cbc7d280ed1bb5a84d1f412936.svg",
-    "main.96da1c66.css.map": "/static/css/main.96da1c66.css.map",
-    "main.25d94e2c.js.map": "/static/js/main.25d94e2c.js.map"
+    "main.7520e5a1.css.map": "/static/css/main.7520e5a1.css.map",
+    "main.50adfd1b.js.map": "/static/js/main.50adfd1b.js.map"
   },
   "entrypoints": [
-    "static/css/main.96da1c66.css",
-    "static/js/main.25d94e2c.js"
+    "static/css/main.7520e5a1.css",
+    "static/js/main.50adfd1b.js"
   ]
 }

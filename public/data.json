@@ -8,15 +8,15 @@
     "base58prefix": 90,
     "logo": "frequency",
     "decimals": 8,
-    "liveMetaVersion": 189,
+    "liveMetaVersion": 192,
     "metadataQr": {
-      "version": 189,
+      "version": 192,
       "file": {
-        "path": "qr/frequency_metadata_189.apng",
+        "path": "qr/frequency_metadata_192.apng",
         "signedBy": "Frequency",
         "source": {
           "type": "Rpc",
-          "block": "0x02b1fdb8c6825daf9ec7b1b80897db1ea86a313649915ad7da09ad8975b3e67d"
+          "block": "0x2c571341d87095f92fccd49322469d220d7ff1333dabdabefe8b6f7f80bfe76f"
         }
       }
     },
